@@ -16,7 +16,7 @@ export function Footer() {
     <footer className="relative pt-20 pb-10">
       <div className="container-luxe">
         <div className="gold-divider mb-16" />
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-10">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2.5">
               <img
@@ -57,6 +57,23 @@ export function Footer() {
           </div>
 
           <div>
+            <h4 className="font-serif text-lg mb-4 text-gradient-gold">Information</h4>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              {[
+                { label: "Terms & Conditions", href: "/terms-and-conditions" },
+                { label: "Privacy Policy", href: "/privacy-policy" },
+                { label: "Refund Policy", href: "/refund-and-cancellation-policy" },
+              ].map((item) => (
+                <li key={item.label}>
+                  <a href={item.href} className="hover:text-gold transition-colors">
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="md:col-span-2">
             <h4 className="font-serif text-lg mb-4 text-gradient-gold">Connect</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">

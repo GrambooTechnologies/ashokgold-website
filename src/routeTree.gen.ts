@@ -11,6 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SchemeRouteImport } from './routes/scheme'
+import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions';
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy';
+import { Route as RefundPolicyRouteImport } from './routes/refund-and-cancellation-policy';
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +25,58 @@ const SchemeRoute = SchemeRouteImport.update({
   path: '/scheme',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
+  id: '/terms-and-conditions',
+  path: '/terms-and-conditions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RefundPolicyRoute = RefundPolicyRouteImport.update({
+  id: '/refund-and-cancellation-policy',
+  path: '/refund-and-cancellation-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/scheme': typeof SchemeRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/refund-and-cancellation-policy': typeof RefundPolicyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/scheme': typeof SchemeRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/refund-and-cancellation-policy': typeof RefundPolicyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/scheme': typeof SchemeRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/refund-and-cancellation-policy': typeof RefundPolicyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/scheme'
+  fullPaths: '/' | '/scheme' | '/terms-and-conditions' | '/privacy-policy' | '/refund-and-cancellation-policy'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/scheme'
-  id: '__root__' | '/' | '/scheme'
+  to: '/' | '/scheme' | '/terms-and-conditions' | '/privacy-policy' | '/refund-and-cancellation-policy'
+  id: '__root__' | '/' | '/scheme' | '/terms-and-conditions' | '/privacy-policy' | '/refund-and-cancellation-policy'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SchemeRoute: typeof SchemeRoute
+  TermsAndConditionsRoute: typeof TermsAndConditionsRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  RefundPolicyRoute: typeof RefundPolicyRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +95,36 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SchemeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/terms-and-conditions': {
+      id: '/terms-and-conditions'
+      path: '/terms-and-conditions'
+      fullPath: '/terms-and-conditions'
+      preLoaderRoute: typeof TermsAndConditionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/refund-and-cancellation-policy': {
+      id: '/refund-and-cancellation-policy'
+      path: '/refund-and-cancellation-policy'
+      fullPath: '/refund-and-cancellation-policy'
+      preLoaderRoute: typeof RefundPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SchemeRoute: SchemeRoute,
+  TermsAndConditionsRoute: TermsAndConditionsRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  RefundPolicyRoute: RefundPolicyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
