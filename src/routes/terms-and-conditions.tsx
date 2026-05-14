@@ -1,4 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { Link, createFileRoute } from '@tanstack/react-router'
 import { Navbar } from "@/components/luxury/Navbar";
 import { Footer } from "@/components/luxury/Footer";
 
@@ -13,6 +13,11 @@ function TermsAndConditions() {
       <main className="flex-grow container-luxe pt-28 pb-20">
         <header className="mx-auto max-w-3xl text-center">
           <h1 className="text-4xl font-serif font-bold">Terms & Conditions</h1>
+          <nav aria-label="Breadcrumb" className="mt-4 text-sm text-muted-foreground">
+            <Link to="/" className="transition-colors hover:text-foreground">Home</Link>
+            <span className="mx-2">/</span>
+            <span className="text-foreground">Terms & Conditions</span>
+          </nav>
           <p className="mt-4 text-muted-foreground leading-relaxed">
             These terms define your rights and responsibilities when using our website, browsing collections, and purchasing jewellery from Ashok Gold & Diamonds.
           </p>
