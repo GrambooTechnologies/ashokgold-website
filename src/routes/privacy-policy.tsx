@@ -19,7 +19,7 @@ function PrivacyPolicy() {
             <span className="text-foreground">Privacy Policy</span>
           </nav>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            Ashok Gold & Diamonds respects your privacy and treats your personal information confidentially, with strong standards for safe and secure customer interactions.
+            Ashok Gold respects your privacy and treats your personal information confidentially, with strong standards for safe and secure customer interactions.
           </p>
         </header>
 

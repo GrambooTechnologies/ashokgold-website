@@ -7,11 +7,11 @@ import { ScrollProgress, WhatsAppButton } from "@/components/luxury/Floating";
 export const Route = createFileRoute("/scheme")({
   head: () => ({
     meta: [
-      { title: "Gold Schemes | ASHOK GOLD & DIAMONDS" },
+      { title: "Gold Schemes | ASHOK GOLD" },
       {
         name: "description",
         content:
-          "Explore ASHOK GOLD & DIAMONDS Scheme 1 and Scheme 2, then join instantly via WhatsApp form.",
+          "Explore ASHOK GOLD Scheme 1 and Scheme 2, then join instantly via WhatsApp form.",
       },
     ],
   }),

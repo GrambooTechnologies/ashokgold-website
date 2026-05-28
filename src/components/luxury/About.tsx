@@ -42,7 +42,7 @@ export function About() {
               Legacy of <em className="not-italic text-gradient-gold">Craftsmanship</em>
             </>
           }
-          subtitle="ASHOK GOLD & DIAMONDS began as a jewellery manufacturing house dedicated to purity and craftsmanship. Since 2018, we've evolved into a premium destination for traditional and modern jewellery — delivered with unmatched quality and trust."
+          subtitle="ASHOK GOLD began as a jewellery manufacturing house dedicated to purity and craftsmanship. Since 2018, we've evolved into a premium destination for traditional and modern jewellery — delivered with unmatched quality and trust."
         />
 
         <motion.div

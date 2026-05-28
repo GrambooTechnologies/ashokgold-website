@@ -60,7 +60,7 @@ export function Contact() {
           {/* Info */}
           <div className="lg:col-span-2 space-y-4">
             {[
-              { icon: MapPin, label: "Showroom", value: "ASHOK GOLD & DIAMONDS, Brahmamangalam, Kerala 686605", href: "https://share.google/tZGIjGfZRBOdqygxl" },
+              { icon: MapPin, label: "Showroom", value: "ASHOK GOLD, Brahmamangalam, Kerala 686605", href: "https://share.google/tZGIjGfZRBOdqygxl" },
               { icon: Mail, label: "Email", value: "ashokgoldanddiamonds@gmail.com", href: "mailto:ashokgoldanddiamonds@gmail.com" },
               { icon: InstagramIcon, label: "Instagram", value: "@ashokgoldanddiamonds", href: "https://instagram.com/ashokgoldanddiamonds" },
               { icon: Phone, label: "WhatsApp", value: "Chat with us", href: "https://wa.me/919746755852" },
@@ -90,7 +90,7 @@ export function Contact() {
 
             <div className="overflow-hidden rounded-2xl border border-gold/15 mt-2">
               <iframe
-                title="ASHOK GOLD & DIAMONDS location"
+                title="ASHOK GOLD location"
                 src="https://www.google.com/maps?q=Ashok%20Gold%20%26%20Diamonds%2C%20Brahmamangalam%2C%20Kerala%20686605&output=embed"
                 className="h-64 w-full grayscale contrast-110"
                 loading="lazy"

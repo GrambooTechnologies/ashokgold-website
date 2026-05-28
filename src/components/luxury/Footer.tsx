@@ -21,13 +21,13 @@ export function Footer() {
             <div className="flex items-center gap-2.5">
               <img
                 src={logo}
-                alt="ASHOK GOLD & DIAMONDS"
+                alt="ASHOK GOLD"
                 className="h-9.5 w-auto object-contain grayscale contrast-125 brightness-40"
               />
               <div className="leading-none">
-                <div className="font-serif text-xl sm:text-3xl tracking-[0.1em] text-[#1C1208]">ASHOK</div>
-                <div className="text-[9.5px] leading-none uppercase tracking-[0.14em] text-[#4b2e00]">
-                  Gold &amp; Diamonds
+                <div className="font-serif text-xl sm:text-3xl tracking-[0.1em] text-[#1C1208]">ASHOK GOLD</div>
+                <div className="text-[10.1px] leading-none tracking-[0.14em] text-[#4b2e00]">
+                  Celebrate Every Precious Moments
                 </div>
               </div>
             </div>
@@ -96,7 +96,7 @@ export function Footer() {
 
         <div className="gold-divider mt-16 mb-6" />
         <div className="flex flex-col md:flex-row justify-between gap-4 text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} ASHOK GOLD & DIAMONDS. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} ASHOK GOLD. All rights reserved.</p>
           <p>
             Developed by{" "}
             <a

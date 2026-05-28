@@ -19,7 +19,7 @@ function TermsAndConditions() {
             <span className="text-foreground">Terms & Conditions</span>
           </nav>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            These terms define your rights and responsibilities when using our website, browsing collections, and purchasing jewellery from Ashok Gold & Diamonds.
+            These terms define your rights and responsibilities when using our website, browsing collections, and purchasing jewellery from Ashok Gold.
           </p>
         </header>
 
@@ -45,7 +45,7 @@ function TermsAndConditions() {
           <article>
             <h2 className="text-2xl font-serif font-semibold text-foreground">Legal and Usage Conditions</h2>
             <ul className="list-disc pl-6 mt-4 space-y-2 text-muted-foreground leading-relaxed">
-              <li>Content, designs, and branding on this website are owned by Ashok Gold & Diamonds and must not be reused without permission.</li>
+              <li>Content, designs, and branding on this website are owned by Ashok Gold and must not be reused without permission.</li>
               <li>Any misuse of the website, including fraudulent transactions, may result in blocked access and legal action.</li>
               <li>All disputes are subject to the jurisdiction of courts in Kerala, India.</li>
             </ul>
