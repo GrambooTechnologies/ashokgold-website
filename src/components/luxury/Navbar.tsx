@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, ShoppingCart, X } from "lucide-react";
+import { Link, useLocation } from "@tanstack/react-router";
 import logo from "@/assets/logo.png";
+import { useCart } from "@/shop/cart-context";
 
 const links = [
   { href: "/", label: "Home" },
   { href: "/#about", label: "About" },
   { href: "/scheme", label: "Gold Schemes" },
+  { href: "/shop-online", label: "Shop Online" },
   { href: "/#why", label: "Why Us" },
 ];
 
@@ -15,6 +18,9 @@ const allLinks = [...links, { href: "/#contact", label: "Contact" }];
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const { count } = useCart();
+  const showCart = location.pathname.startsWith("/shop-online");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -67,9 +73,38 @@ export function Navbar() {
             >
               Contact
             </a>
+
+            {showCart && (
+              <Link
+                to="/shop-online/cart"
+                className="relative inline-flex items-center justify-center rounded-full border border-[#AA6200] p-2 text-[#1C1208] transition-colors hover:bg-[#AA6200] hover:text-white"
+                aria-label="Open cart"
+              >
+                <ShoppingCart size={18} />
+                {count > 0 && (
+                  <span className="absolute -right-1 -top-1 min-w-5 rounded-full bg-[#1C1208] px-1.5 text-center text-[10px] font-semibold text-[#F4EDD6]">
+                    {count}
+                  </span>
+                )}
+              </Link>
+            )}
           </nav>
 
           <div className="ml-auto flex items-center gap-3 lg:hidden">
+            {showCart && (
+              <Link
+                to="/shop-online/cart"
+                className="relative inline-flex items-center justify-center rounded-full border border-[#AA6200] p-2 text-[#1C1208]"
+                aria-label="Open cart"
+              >
+                <ShoppingCart size={17} />
+                {count > 0 && (
+                  <span className="absolute -right-1 -top-1 min-w-5 rounded-full bg-[#1C1208] px-1.5 text-center text-[10px] font-semibold text-[#F4EDD6]">
+                    {count}
+                  </span>
+                )}
+              </Link>
+            )}
             <button
               onClick={() => setOpen(true)}
               aria-label="Open menu"

@@ -11,9 +11,16 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SchemeRouteImport } from './routes/scheme'
-import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions';
-import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy';
-import { Route as RefundPolicyRouteImport } from './routes/refund-and-cancellation-policy';
+import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as RefundPolicyRouteImport } from './routes/refund-and-cancellation-policy'
+import { Route as ShopOnlineRouteImport } from './routes/shop-online'
+import { Route as ShopOnlineCollectionRouteImport } from './routes/shop-online.$collectionSlug'
+import { Route as ShopOnlineCategoryRouteImport } from './routes/shop-online.$collectionSlug.$categorySlug'
+import { Route as ShopOnlineProductRouteImport } from './routes/shop-online.$collectionSlug.$categorySlug.$productSlug'
+import { Route as ShopOnlineCartRouteImport } from './routes/shop-online.cart'
+import { Route as AdminLoginRouteImport } from './routes/admin-login'
+import { Route as AdminRouteImport } from './routes/admin'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,6 +47,41 @@ const RefundPolicyRoute = RefundPolicyRouteImport.update({
   path: '/refund-and-cancellation-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ShopOnlineRoute = ShopOnlineRouteImport.update({
+  id: '/shop-online',
+  path: '/shop-online',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopOnlineCollectionRoute = ShopOnlineCollectionRouteImport.update({
+  id: '/shop-online/$collectionSlug',
+  path: '/shop-online/$collectionSlug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopOnlineCategoryRoute = ShopOnlineCategoryRouteImport.update({
+  id: '/shop-online/$collectionSlug/$categorySlug',
+  path: '/shop-online/$collectionSlug/$categorySlug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopOnlineProductRoute = ShopOnlineProductRouteImport.update({
+  id: '/shop-online/$collectionSlug/$categorySlug/$productSlug',
+  path: '/shop-online/$collectionSlug/$categorySlug/$productSlug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopOnlineCartRoute = ShopOnlineCartRouteImport.update({
+  id: '/shop-online/cart',
+  path: '/shop-online/cart',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin-login',
+  path: '/admin-login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -47,14 +89,30 @@ export interface FileRoutesByFullPath {
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/refund-and-cancellation-policy': typeof RefundPolicyRoute
+  '/shop-online': typeof ShopOnlineRoute
+  '/shop-online/$collectionSlug': typeof ShopOnlineCollectionRoute
+  '/shop-online/$collectionSlug/$categorySlug': typeof ShopOnlineCategoryRoute
+  '/shop-online/$collectionSlug/$categorySlug/$productSlug': typeof ShopOnlineProductRoute
+  '/shop-online/cart': typeof ShopOnlineCartRoute
+  '/admin-login': typeof AdminLoginRoute
+  '/admin': typeof AdminRoute
 }
+
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/scheme': typeof SchemeRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/refund-and-cancellation-policy': typeof RefundPolicyRoute
+  '/shop-online': typeof ShopOnlineRoute
+  '/shop-online/$collectionSlug': typeof ShopOnlineCollectionRoute
+  '/shop-online/$collectionSlug/$categorySlug': typeof ShopOnlineCategoryRoute
+  '/shop-online/$collectionSlug/$categorySlug/$productSlug': typeof ShopOnlineProductRoute
+  '/shop-online/cart': typeof ShopOnlineCartRoute
+  '/admin-login': typeof AdminLoginRoute
+  '/admin': typeof AdminRoute
 }
+
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
@@ -62,21 +120,74 @@ export interface FileRoutesById {
   '/terms-and-conditions': typeof TermsAndConditionsRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/refund-and-cancellation-policy': typeof RefundPolicyRoute
+  '/shop-online': typeof ShopOnlineRoute
+  '/shop-online/$collectionSlug': typeof ShopOnlineCollectionRoute
+  '/shop-online/$collectionSlug/$categorySlug': typeof ShopOnlineCategoryRoute
+  '/shop-online/$collectionSlug/$categorySlug/$productSlug': typeof ShopOnlineProductRoute
+  '/shop-online/cart': typeof ShopOnlineCartRoute
+  '/admin-login': typeof AdminLoginRoute
+  '/admin': typeof AdminRoute
 }
+
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/scheme' | '/terms-and-conditions' | '/privacy-policy' | '/refund-and-cancellation-policy'
+  fullPaths:
+    | '/'
+    | '/scheme'
+    | '/terms-and-conditions'
+    | '/privacy-policy'
+    | '/refund-and-cancellation-policy'
+    | '/shop-online'
+    | '/shop-online/$collectionSlug'
+    | '/shop-online/$collectionSlug/$categorySlug'
+    | '/shop-online/$collectionSlug/$categorySlug/$productSlug'
+    | '/shop-online/cart'
+    | '/admin-login'
+    | '/admin'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/scheme' | '/terms-and-conditions' | '/privacy-policy' | '/refund-and-cancellation-policy'
-  id: '__root__' | '/' | '/scheme' | '/terms-and-conditions' | '/privacy-policy' | '/refund-and-cancellation-policy'
+  to:
+    | '/'
+    | '/scheme'
+    | '/terms-and-conditions'
+    | '/privacy-policy'
+    | '/refund-and-cancellation-policy'
+    | '/shop-online'
+    | '/shop-online/$collectionSlug'
+    | '/shop-online/$collectionSlug/$categorySlug'
+    | '/shop-online/$collectionSlug/$categorySlug/$productSlug'
+    | '/shop-online/cart'
+    | '/admin-login'
+    | '/admin'
+  id:
+    | '__root__'
+    | '/'
+    | '/scheme'
+    | '/terms-and-conditions'
+    | '/privacy-policy'
+    | '/refund-and-cancellation-policy'
+    | '/shop-online'
+    | '/shop-online/$collectionSlug'
+    | '/shop-online/$collectionSlug/$categorySlug'
+    | '/shop-online/$collectionSlug/$categorySlug/$productSlug'
+    | '/shop-online/cart'
+    | '/admin-login'
+    | '/admin'
   fileRoutesById: FileRoutesById
 }
+
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SchemeRoute: typeof SchemeRoute
   TermsAndConditionsRoute: typeof TermsAndConditionsRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   RefundPolicyRoute: typeof RefundPolicyRoute
+  ShopOnlineRoute: typeof ShopOnlineRoute
+  ShopOnlineCollectionRoute: typeof ShopOnlineCollectionRoute
+  ShopOnlineCategoryRoute: typeof ShopOnlineCategoryRoute
+  ShopOnlineProductRoute: typeof ShopOnlineProductRoute
+  ShopOnlineCartRoute: typeof ShopOnlineCartRoute
+  AdminLoginRoute: typeof AdminLoginRoute
+  AdminRoute: typeof AdminRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -116,16 +227,73 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RefundPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/shop-online': {
+      id: '/shop-online'
+      path: '/shop-online'
+      fullPath: '/shop-online'
+      preLoaderRoute: typeof ShopOnlineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shop-online/$collectionSlug': {
+      id: '/shop-online/$collectionSlug'
+      path: '/shop-online/$collectionSlug'
+      fullPath: '/shop-online/$collectionSlug'
+      preLoaderRoute: typeof ShopOnlineCollectionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shop-online/$collectionSlug/$categorySlug': {
+      id: '/shop-online/$collectionSlug/$categorySlug'
+      path: '/shop-online/$collectionSlug/$categorySlug'
+      fullPath: '/shop-online/$collectionSlug/$categorySlug'
+      preLoaderRoute: typeof ShopOnlineCategoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shop-online/$collectionSlug/$categorySlug/$productSlug': {
+      id: '/shop-online/$collectionSlug/$categorySlug/$productSlug'
+      path: '/shop-online/$collectionSlug/$categorySlug/$productSlug'
+      fullPath: '/shop-online/$collectionSlug/$categorySlug/$productSlug'
+      preLoaderRoute: typeof ShopOnlineProductRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shop-online/cart': {
+      id: '/shop-online/cart'
+      path: '/shop-online/cart'
+      fullPath: '/shop-online/cart'
+      preLoaderRoute: typeof ShopOnlineCartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin-login': {
+      id: '/admin-login'
+      path: '/admin-login'
+      fullPath: '/admin-login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  SchemeRoute: SchemeRoute,
-  TermsAndConditionsRoute: TermsAndConditionsRoute,
-  PrivacyPolicyRoute: PrivacyPolicyRoute,
-  RefundPolicyRoute: RefundPolicyRoute,
+  IndexRoute,
+  SchemeRoute,
+  TermsAndConditionsRoute,
+  PrivacyPolicyRoute,
+  RefundPolicyRoute,
+  ShopOnlineRoute,
+  ShopOnlineCollectionRoute,
+  ShopOnlineCategoryRoute,
+  ShopOnlineProductRoute,
+  ShopOnlineCartRoute,
+  AdminLoginRoute,
+  AdminRoute,
 }
+
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
