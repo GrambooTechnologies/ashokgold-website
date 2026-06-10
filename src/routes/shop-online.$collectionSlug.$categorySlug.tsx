@@ -1,10 +1,10 @@
 import { useMemo, useState } from "react"
 import { Link, createFileRoute } from "@tanstack/react-router"
+import { ArrowLeft, SlidersHorizontal } from "lucide-react"
 import { Navbar } from "@/components/luxury/Navbar"
 import { Footer } from "@/components/luxury/Footer"
 import { ScrollProgress } from "@/components/luxury/Floating"
 import { readShopDb } from "@/shop/store"
-import { formatWeight } from "@/shop/utils"
 
 const PAGE_SIZE = 8
 
@@ -24,6 +24,7 @@ function ProductListingPage() {
   const [search, setSearch] = useState("")
   const [weightRange, setWeightRange] = useState("all")
   const [priceRange, setPriceRange] = useState("all")
+  const [showFilters, setShowFilters] = useState(false)
   const [page, setPage] = useState(1)
 
   const filteredProducts = useMemo(() => {
@@ -80,6 +81,24 @@ function ProductListingPage() {
       <Navbar />
       <section className="container-luxe pt-32 pb-6">
         <div className="rounded-[30px] bg-[#FBF3E4] p-6 shadow-elegant md:p-10">
+          <div className="mb-3 flex items-center justify-between gap-3">
+            <Link
+              to="/shop-online/$collectionSlug"
+              params={{ collectionSlug: baseCollection.slug }}
+              className="inline-flex items-center gap-2 rounded-full border border-[#CFAF79] bg-white/90 px-3 py-1.5 text-xs uppercase tracking-[0.14em] text-[#7A4200]"
+            >
+              <ArrowLeft size={14} />
+              Back
+            </Link>
+
+            <button
+              onClick={() => setShowFilters((prev) => !prev)}
+              className="inline-flex items-center gap-2 rounded-full border border-[#CFAF79] bg-white px-3 py-1.5 text-xs uppercase tracking-[0.14em] text-[#7A4200]"
+            >
+              <SlidersHorizontal size={14} />
+              Filters
+            </button>
+          </div>
           <p className="text-xs uppercase tracking-[0.24em] text-[#AA6200]">Shop Online / {baseCollection.name} / {baseCategory.name}</p>
           <h1 className="mt-2 text-4xl md:text-5xl">Product Listing</h1>
           <p className="mt-3 max-w-3xl text-sm text-[#5A4420] md:text-base">
@@ -88,8 +107,9 @@ function ProductListingPage() {
         </div>
       </section>
 
-      <section className="container-luxe pb-8">
-        <div className="grid gap-4 rounded-[24px] border border-[#D2BC92] bg-[#FBF3E4] p-4 shadow-elegant md:grid-cols-5 md:p-6">
+      {showFilters && (
+        <section className="container-luxe pb-8">
+          <div className="grid gap-4 rounded-[24px] border border-[#D2BC92] bg-[#FBF3E4] p-4 shadow-elegant md:grid-cols-5 md:p-6">
           <input
             value={search}
             onChange={(event) => {
@@ -161,8 +181,9 @@ function ProductListingPage() {
             <option value="75000-150000">75,000 - 1,50,000</option>
             <option value="150000+">1,50,000+</option>
           </select>
-        </div>
-      </section>
+          </div>
+        </section>
+      )}
 
       <section className="container-luxe pb-12">
         <div className="grid gap-7 sm:grid-cols-2 xl:grid-cols-4">
@@ -193,7 +214,6 @@ function ProductListingPage() {
 
                 <div className="space-y-1.5 p-5">
                   <h2 className="font-serif text-2xl text-[#1C1208] leading-tight">{product.name}</h2>
-                  <p className="text-sm text-[#5A4420]">Gross Weight: {formatWeight(product.grossWeight)}</p>
                   <p className="text-sm text-[#5A4420]">{collection.name} / {category.name}</p>
                   {product.stockQuantity === 1 && (
                     <span className="inline-flex rounded-full bg-[#7A4200] px-3 py-1 text-xs font-medium text-[#F4EDD6]">

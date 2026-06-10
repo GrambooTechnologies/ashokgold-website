@@ -8,6 +8,7 @@ const ADMIN_SESSION_KEY = "ashok_shop_admin_session"
 const ADMIN_PASSWORD_KEY = "ashok_shop_admin_password_hash"
 const DEFAULT_ADMIN_USER = "admin"
 const DEFAULT_ADMIN_PASSWORD = "admin321"
+const REQUESTED_WHATSAPP_NUMBER = "+91 9746755852"
 
 const cloneDefaultDb = (): ShopDb => structuredClone(defaultShopDb)
 
@@ -25,6 +26,8 @@ export const readShopDb = (): ShopDb => {
 
   try {
     const parsed = JSON.parse(raw) as ShopDb
+    const nextWhatsapp = REQUESTED_WHATSAPP_NUMBER
+
     return {
       ...cloneDefaultDb(),
       ...parsed,
@@ -32,7 +35,7 @@ export const readShopDb = (): ShopDb => {
       categories: parsed.categories ?? [],
       products: parsed.products ?? [],
       quoteRequests: parsed.quoteRequests ?? [],
-      settings: { ...cloneDefaultDb().settings, ...parsed.settings },
+      settings: { ...cloneDefaultDb().settings, ...parsed.settings, whatsappNumber: nextWhatsapp },
     }
   } catch {
     const seeded = cloneDefaultDb()

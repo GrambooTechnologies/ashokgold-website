@@ -317,7 +317,7 @@ export const defaultShopDb: ShopDb = {
   products,
   quoteRequests: [],
   settings: {
-    whatsappNumber: "91998808609770",
+    whatsappNumber: "+91 9746755852",
     shopBanner: "Discover handpicked collections crafted for life\'s celebrations.",
     seoTitle: "Shop Online | Ashok Gold & Diamonds",
     seoDescription: "Buy gold, diamond, silver, and platinum jewellery online from Ashok Gold & Diamonds.",

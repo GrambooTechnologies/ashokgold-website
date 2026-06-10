@@ -47,6 +47,8 @@ function FloatingInput({
 }
 
 export function Contact() {
+  const whatsappDigits = "+91 9746755852".replace(/[^\d]/g, "");
+
   return (
     <section id="contact" className="relative py-28 md:py-40 bg-gradient-to-b from-transparent via-secondary/20 to-transparent">
       <div className="container-luxe">
@@ -63,7 +65,7 @@ export function Contact() {
               { icon: MapPin, label: "Showroom", value: "ASHOK GOLD, Brahmamangalam, Kerala 686605", href: "https://share.google/tZGIjGfZRBOdqygxl" },
               { icon: Mail, label: "Email", value: "ashokgoldanddiamonds@gmail.com", href: "mailto:ashokgoldanddiamonds@gmail.com" },
               { icon: InstagramIcon, label: "Instagram", value: "@ashokgoldanddiamonds", href: "https://instagram.com/ashokgoldanddiamonds" },
-              { icon: Phone, label: "WhatsApp", value: "Chat with us", href: "https://wa.me/919746755852" },
+              { icon: Phone, label: "WhatsApp", value: "Chat with us", href: `https://wa.me/${whatsappDigits}` },
             ].map((c) => (
               <motion.a
                 key={c.label}

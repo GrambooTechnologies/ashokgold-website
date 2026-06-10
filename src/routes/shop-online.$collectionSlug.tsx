@@ -1,4 +1,5 @@
 import { Link, createFileRoute } from "@tanstack/react-router"
+import { ArrowLeft } from "lucide-react"
 import { Navbar } from "@/components/luxury/Navbar"
 import { Footer } from "@/components/luxury/Footer"
 import { ScrollProgress } from "@/components/luxury/Floating"
@@ -38,6 +39,13 @@ function CollectionCategoriesPage() {
       <Navbar />
       <section className="container-luxe pt-32 pb-10">
         <div className="rounded-[30px] bg-[#FBF3E4] p-6 shadow-elegant md:p-10">
+          <Link
+            to="/shop-online"
+            className="inline-flex items-center gap-2 rounded-full border border-[#CFAF79] bg-white/90 px-3 py-1.5 text-xs uppercase tracking-[0.14em] text-[#7A4200]"
+          >
+            <ArrowLeft size={14} />
+            Back
+          </Link>
           <p className="text-xs uppercase tracking-[0.24em] text-[#AA6200]">Shop Online / {collection.name}</p>
           <h1 className="mt-2 text-4xl md:text-5xl">Choose Category</h1>
           <p className="mt-3 max-w-2xl text-sm text-[#5A4420] md:text-base">

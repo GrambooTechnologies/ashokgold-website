@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import { Coins, TrendingUp, Check } from "lucide-react";
 import { SectionHeader } from "./SectionHeader";
 
-const WHATSAPP_PHONE = "919746755852";
+const WHATSAPP_PHONE = "+91 9746755852";
 
 function FixedCalculator() {
   const [amount, setAmount] = useState(2000);
@@ -129,7 +129,7 @@ export function Schemes() {
       `Details: ${details || "Not specified"}`,
     ].join("\n");
 
-    const whatsappUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/${WHATSAPP_PHONE.replace(/[^\d]/g, "")}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
   };
 

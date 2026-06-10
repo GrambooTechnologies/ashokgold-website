@@ -25,9 +25,11 @@ export function ScrollProgress() {
 }
 
 export function WhatsAppButton() {
+  const whatsappDigits = "+91 9746755852".replace(/[^\d]/g, "")
+
   return (
     <motion.a
-      href="https://wa.me/919746755852"
+      href={`https://wa.me/${whatsappDigits}`}
       target="_blank"
       rel="noreferrer"
       aria-label="Chat on WhatsApp"
